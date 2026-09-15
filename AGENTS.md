@@ -34,7 +34,7 @@ for the design and `README.md` for status and ownership.
 6. **Do not add dependencies without a reason in the PR description.** The
    current set is Compose Multiplatform, kotlinx-coroutines and KotlinCrypto.
    Do not bump AGP, Kotlin or Gradle casually: they are pinned to what Android
-   Studio Narwhal (2025.1) can sync (AGP 8.11.2 is the ceiling for that IDE).
+   Studio Narwhal (2025.1) can sync (AGP 8.11.1 is the ceiling for that IDE).
 7. **Tests for logic, not for UI.** Anything in `core`, `haptic`, `input`,
    `data` gets a `commonTest`. UI is verified manually on a device for now.
 

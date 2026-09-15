@@ -1,7 +1,7 @@
 [versions]
 # Kept at the versions supported by Android Studio Narwhal (2025.1.x).
 # AGP 9.x needs Android Studio Otter 3 / Panda or newer, which broke IDE sync for the team.
-agp = "8.11.2"
+agp = "8.11.1"
 android-compileSdk = "36"
 android-minSdk = "26"
 android-targetSdk = "36"
