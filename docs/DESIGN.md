@@ -102,8 +102,14 @@ With two symbols each symbol carries one bit:
 A 6-digit code is ~12 bits stronger than our default. The gap is closed by
 the verifier, not the user:
 
-- allow at most 3 attempts per window and lock the account for 10 minutes
-  after 5 consecutive failures (that bounds an attacker to ~1 % per hour);
+- lock the account for at least 30 minutes after 3 consecutive failures.
+  That caps an online attacker at ~6 attempts per hour, i.e. ~2.3 % per hour
+  for N = 8 and ~0.6 % for N = 10 (P ≈ attempts / 2^N). A softer policy such
+  as 5 failures then a 10 minute lock allows ~30 attempts per hour (~12 % for
+  N = 8) and is not acceptable;
+- note that NIST SP 800-63B §5.1.4.1 requires single-factor OTP outputs of at
+  least 6 decimal digits (~20 bits); an 8-symbol haptic code does not meet
+  that bar on its own, which is why it is a second factor only;
 - treat haptic codes as a second factor only, never as a sole factor;
 - let a service request a longer code with the `pattern=12` URI parameter.
 
