@@ -107,9 +107,12 @@ the verifier, not the user:
   for N = 8 and ~0.6 % for N = 10 (P ≈ attempts / 2^N). A softer policy such
   as 5 failures then a 10 minute lock allows ~30 attempts per hour (~12 % for
   N = 8) and is not acceptable;
-- note that NIST SP 800-63B §5.1.4.1 requires single-factor OTP outputs of at
-  least 6 decimal digits (~20 bits); an 8-symbol haptic code does not meet
-  that bar on its own, which is why it is a second factor only;
+- note that NIST SP 800-63B §5.1.4.1 describes OTP outputs as truncated to
+  "as few as 6 decimal digits (approximately 20 bits of entropy)" and §5.1.4.2
+  requires rate limiting for any output below 64 bits; an 8-symbol haptic code
+  carries 8 bits, which is why it is a second factor only. The same section
+  requires a clock-based nonce to change at least every 2 minutes, which our
+  60 s step satisfies;
 - treat haptic codes as a second factor only, never as a sole factor;
 - let a service request a longer code with the `pattern=12` URI parameter.
 
