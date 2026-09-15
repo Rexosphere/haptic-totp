@@ -44,7 +44,8 @@ docs/          DESIGN.md (plan), verifier_reference.py (server-side reference)
 
 ## Building
 
-Requirements: JDK 17 or 21, Android SDK (platform 36), Xcode 16+ for iOS.
+Requirements: Android Studio Narwhal (2025.1) or newer, JDK 17 or 21, Android SDK (platform 36), Xcode 16+ for iOS.
+Versions are pinned in `gradle/libs.versions.toml` (AGP 8.11.2, Kotlin 2.2.20, Compose Multiplatform 1.9.0, Gradle 8.14.3); do not bump AGP past what the oldest Android Studio on the team supports.
 Android Studio's bundled JBR works; on macOS:
 
 ```sh
@@ -58,7 +59,7 @@ export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
 open iosApp/iosApp.xcodeproj              # iOS: build the iosApp scheme in Xcode
 ```
 
-Or open the root folder in Android Studio with the Kotlin Multiplatform plugin.
+Or open the root folder in Android Studio, wait for Gradle sync, pick the `androidApp` run configuration and press Run.
 
 ## Trying it
 

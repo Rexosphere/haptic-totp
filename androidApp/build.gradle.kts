@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.androidApplication)
+    alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.composeCompiler)
 }
 
@@ -10,6 +11,7 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.compose.foundation)
     implementation(libs.compose.uiToolingPreview)
+    debugImplementation(libs.compose.uiTooling)
 }
 
 android {
@@ -22,6 +24,9 @@ android {
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
         versionName = "0.1.0"
+    }
+    buildFeatures {
+        compose = true
     }
     packaging {
         resources {
@@ -41,6 +46,6 @@ android {
 
 kotlin {
     compilerOptions {
-        jvmTarget = JvmTarget.JVM_17
+        jvmTarget.set(JvmTarget.JVM_17)
     }
 }

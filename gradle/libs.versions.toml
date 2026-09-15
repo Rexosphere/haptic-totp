@@ -1,14 +1,16 @@
 [versions]
-agp = "9.1.1"
+# Kept at the versions supported by Android Studio Narwhal (2025.1.x).
+# AGP 9.x needs Android Studio Otter 3 / Panda or newer, which broke IDE sync for the team.
+agp = "8.11.2"
 android-compileSdk = "36"
 android-minSdk = "26"
 android-targetSdk = "36"
-androidx-activity = "1.13.0"
-compose-multiplatform = "1.11.1"
-kotlin = "2.4.10"
-kotlinx-coroutines = "1.11.0"
-kotlincrypto-macs = "0.8.0"
+androidx-activity = "1.11.0"
+compose-multiplatform = "1.9.0"
 compose-material3 = "1.9.0"
+kotlin = "2.2.20"
+kotlinx-coroutines = "1.10.2"
+kotlincrypto-macs = "0.8.0"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
@@ -24,7 +26,8 @@ kotlincrypto-hmac-sha2 = { module = "org.kotlincrypto.macs:hmac-sha2", version.r
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
-androidMultiplatformLibrary = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
